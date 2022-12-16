@@ -74,4 +74,23 @@ st.altair_chart(c, use_container_width=True)
 st.write("fifth chart")
 
 
+source = pd.DataFrame(df.confederation.value_counts())
+source = source.reset_index()
+source.rename(columns={"index": "category", "confederation": "value"}, inplace=True)
+source
+
+c = alt.Chart(source).mark_arc.encode(
+    theta=alt.Theta("value:Q", stack=True), 
+    color=alt.Color("category:N", legend=None)
+).properties(
+    title='FIFA Confederations',
+)
+
+pie = c.mark_arc(outerRadius=100)
+text = c.mark_text(radius=130, size=12).encode(text="category:N")
+
+pie + text
+
+st.altair_chart(c, use_container_width=True)
+
 
