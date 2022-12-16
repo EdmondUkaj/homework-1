@@ -47,7 +47,27 @@ st.altair_chart(c, use_container_width=True)
 
 st.write("third chart")
 
+c = alt.Chart(df).mark_point().encode(
+    x='tv_audience_share:Q',
+    y='gdp_weighted_share:Q',
+    size=alt.Size('population_share',
+                title='Population'),
+    tooltip=['tv_audience_share', 'gdp_weighted_share']
+).properties(
+    title='World Cup 2010 – Shares',
+).interactive()
 
+st.altair_chart(c, use_container_width=True)
 
 st.write("fourth chart")
+
+c = alt.Chart(df).mark_point().encode(
+    x='tv_audience_share:Q',
+    y='gdp_weighted_share:Q',
+    tooltip=['tv_audience_share', 'gdp_weighted_share']
+).properties(
+    title='World Cup 2010 – Shares',
+).interactive()
+
+st.altair_chart(c, use_container_width=True)
 
