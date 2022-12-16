@@ -44,3 +44,10 @@ c = alt.Chart(df).mark_bar().encode(
     height=150
 )
 st.altair_chart(c, use_container_width=True)
+
+st.write("third chart")
+
+
+
+st.write("fourth chart")
+
