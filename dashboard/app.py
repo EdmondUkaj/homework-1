@@ -73,9 +73,6 @@ st.altair_chart(c, use_container_width=True)
 
 st.write("fifth chart")
 
-
-source = pd.DataFrame({"category": ['confederation'], "value": ['confederation_count']})
-
 source = pd.DataFrame(df.confederation.value_counts())
 source = source.reset_index()
 source.rename(columns={"index": "category", "confederation": "value"}, inplace=True)
@@ -92,8 +89,6 @@ pie = chart.mark_arc(outerRadius=100)
 text = chart.mark_text(radius=130, size=12).encode(text="category:N")
 
 pie + text
-
-st.altair_chart(c, use_container_width=True)
 
 
 
