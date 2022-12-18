@@ -7,7 +7,7 @@ home_path = str(Path.home())
 
 df = pd.read_csv('/Users/edmondukaj/big_data/homework-1/data/external/fifa_countries_audience.csv')
 
-st.title("Streamlit")
+st.title("Aufgabe 5 - Das Dashboard")
 st.image("hdm-logo.jpg")
 st.header("Group K's Dashboard")
 
@@ -17,15 +17,7 @@ st.sidebar.write("I rate this dashboard", satisfation, "/10")
 
 st.dataframe(df)
 
-st.write("First chart")
-
-c = alt.Chart(df).mark_bar().encode(
-        x=('confederation'),
-        y=alt.Y('count(confederation)')
-)
-st.altair_chart(c, use_container_width=True)
-
-st.write("Second Chart")
+st.write("Visualisierung 1")
 
 c = alt.Chart(df).mark_bar().encode(
     x=alt.X('confederation',
@@ -45,7 +37,7 @@ c = alt.Chart(df).mark_bar().encode(
 )
 st.altair_chart(c, use_container_width=True)
 
-st.write("third chart")
+st.write("Visualisierung 2 ")
 
 c = alt.Chart(df).mark_point().encode(
     x='tv_audience_share:Q',
@@ -59,7 +51,7 @@ c = alt.Chart(df).mark_point().encode(
 
 st.altair_chart(c, use_container_width=True)
 
-st.write("fourth chart")
+st.write("Visualisierung 3")
 
 c = alt.Chart(df).mark_point().encode(
     x='tv_audience_share:Q',
@@ -71,7 +63,7 @@ c = alt.Chart(df).mark_point().encode(
 
 st.altair_chart(c, use_container_width=True)
 
-st.write("fifth chart")
+st.write("Visualisierung 4")
 
 source = pd.DataFrame(df.confederation.value_counts())
 source = source.reset_index()
