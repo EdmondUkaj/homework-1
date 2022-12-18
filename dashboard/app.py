@@ -76,7 +76,7 @@ st.write("fifth chart")
 
 source = pd.DataFrame({"category": ['confederation'], "value": ['confederation_count']})
 
-alt.Chart(source).mark_arc().encode(
+c = alt.Chart(df).mark_arc().encode(
     theta=alt.Theta(field="value", type="quantitative"),
     color=alt.Color(field="category", type="nominal"),
 )
